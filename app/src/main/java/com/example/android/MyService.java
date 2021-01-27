@@ -2,18 +2,14 @@ package com.example.android;
 
 import android.app.Service;
 import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.IBinder;
 import android.util.Log;
 
-import androidx.annotation.NonNull;
-import androidx.core.app.JobIntentService;
-
 import java.util.logging.Logger;
 
-public class MyService extends JobIntentService {
+public class MyService extends Service {
 
     private static BroadcastReceiver receiver;
 
@@ -33,17 +29,6 @@ public class MyService extends JobIntentService {
         Log.i("sljdvbskljdgvbs", "stop");
         unregisterReceiver(receiver);
         receiver = null;
-    }
-
-    public static final int JOB_ID = 1;
-
-    public static void enqueueWork(Context context, Intent work) {
-        enqueueWork(context, MyService.class, JOB_ID, work);
-    }
-
-    @Override
-    protected void onHandleWork(@NonNull Intent intent) {
-
     }
 
     @Override
